@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PazinoSuite Help</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+		h1 {
+			text-align: center;
+			color: #364385; /* Or any color you'd like */
+			}
+        h1, h2 {
+            color: #364385;
+        }
+        .toc {
+            background-color: #e6e6e6;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc li {
+            margin-bottom: 10px;
+        }
+        .toc li a {
+            color: #364385;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .toc li a:hover {
+            color: #ff80ab;
+            text-decoration: underline;
+        }
+        .menu-item {
+            padding: 20px;
+            background-color: #fff;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .menu-item h2 {
+            color: #364385;
+        }
+        .menu-item .icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        .search-box {
+            padding: 10px;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        /* Dark Mode Styles */
+        .dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        .dark-mode .toc {
+            background-color: #1c1c1c;
+        }
+        .dark-mode a {
+            color: #bb86fc;
+        }
+        .dark-mode a:hover {
+            color: #ff80ab;
+        }
+        .dark-mode .menu-item {
+            background-color: #333;
+            color: #e0e0e0;
+            border: 1px solid #444;
+        }
+        .dark-mode .menu-item:hover {
+            background-color: #444;
+        }
+        .dark-mode .menu-item h2 {
+            color: #ff80ab;
+        }
+        .dark-mode button {
+            background-color: #bb86fc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .dark-mode button:hover {
+            background-color: #ff80ab;
+        }
+        /* Smooth Transition */
+        body, .toc, .menu-item, button {
+            transition: background-color 0.3s, color 0.3s, border 0.3s;
+        }
+        /* Enhanced Table of Contents Styling */
+        .toc {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .toc li a {
+            color: #364385;
+            font-weight: bold;
+            text-decoration: none;
+            display: block;
+            padding: 8px 0;
+        }
+        .toc li a:hover {
+            color: #ff80ab;
+            text-decoration: underline;
+        }
+        .toc li ul {
+            padding-left: 20px;
+        }
+        .toc li ul li a {
+            color: #607d8b; /* Subtle gray for sub-menu links */
+            font-weight: normal;
+        }
+        .toc li ul li a:hover {
+            color: #ff80ab; /* Pink on hover for sub-menu items */
+        }
+        .toc h2 {
+            color: #364385;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+	<h1>PazinoSuite Help</h1>
+	
+    <!-- Search Box -->
+    <div class="search-box">
+        <input type="text" id="search" placeholder="Search Help..." onkeyup="searchHelp()">
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="javascript:void(0);" onclick="toggleMenu('barcode-creation')">Barcode Creation</a>
+                <ul id="barcode-creation" style="display: none;">
+                    <li><a href="#generate-barcode">Generate Barcode</a></li>
+                </ul>
+            </li>
+            <li><a href="javascript:void(0);" onclick="toggleMenu('excel-data-cleaning')">Excel Data Cleaning</a>
+                <ul id="excel-data-cleaning" style="display: none;">
+                    <li><a href="#unmerge-remove-columns">Unmerge and Remove Empty Columns and Rows</a></li>
+                    <li><a href="#remove-duplicates">Remove Duplicates</a></li>
+                    <li><a href="#find-blank-cells">Find and Replace Blank Cells</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Help Content -->
+    <div class="menu-item" id="generate-barcode">
+        <div class="icon">📊</div>
+        <h2>Generate Barcode</h2>
+        <p>The Barcode Generation feature allows users to create barcodes for products. Supported barcode formats include Code 39, Code 128, and QR Codes.</p>
+        <h3>Required Excel Structure</h3>
+        <ul>
+            <li><strong>Column A:</strong> Product Name</li>
+            <li><strong>Column B:</strong> Product Code (Unique Identifier)</li>
+            <li><strong>Column C:</strong> Barcode Type (Code39, Code128, QRCode, etc.)</li>
+        </ul>
+        <h3>Steps to Generate Barcodes</h3>
+        <ol>
+            <li>Open the Barcode Creation module in PazinoSuite.</li>
+            <li>Upload an Excel file containing product details.</li>
+            <li>Select the desired barcode format.</li>
+            <li>Click the 'Generate Barcode' button.</li>
+            <li>The software will generate barcodes and save them in an output file.</li>
+        </ol>
+        <h3>Expected Output</h3>
+        <p>A new Excel file containing the original data with an additional column displaying generated barcodes as images.</p>
+    </div>
+    <div class="menu-item" id="unmerge-remove-columns">
+        <div class="icon">🧹</div>
+        <h2>Unmerge and Remove Empty Columns and Rows</h2>
+        <p>Unmerges cells and removes any empty columns and rows, cleaning up your data for better processing.</p>
+    </div>
+    <div class="menu-item" id="remove-duplicates">
+        <div class="icon">🔄</div>
+        <h2>Remove Duplicates</h2>
+        <p>This feature allows you to remove duplicate entries from your Excel files to keep your data clean.</p>
+    </div>
+
+    <!-- Printable Version Button -->
+    <button onclick="window.print()" style="padding: 10px 20px; margin-top: 20px; background-color: #364385; color: white;">Print Help</button>
+
+    <!-- Dark Mode Toggle Button -->
+    <button onclick="toggleDarkMode()" style="padding: 10px 20px; margin-top: 20px; background-color: #364385; color: white;">Toggle Dark Mode</button>
+
+    <script>
+        // Search Help Function
+        function searchHelp() {
+            var input, filter, divs, text, i;
+            input = document.getElementById('search');
+            filter = input.value.toUpperCase();
+            divs = document.querySelectorAll('.menu-item');
+
+            for (i = 0; i < divs.length; i++) {
+                text = divs[i].textContent || divs[i].innerText;
+                if (text.toUpperCase().indexOf(filter) > -1) {
+                    divs[i].style.display = "";
+                } else {
+                    divs[i].style.display = "none";
+                }
+            }
+        }
+
+        // Toggle Dynamic Menu Function
+        function toggleMenu(menuId) {
+            var menu = document.getElementById(menuId);
+            if (menu.style.display === "none") {
+                menu.style.display = "block";
+            } else {
+                menu.style.display = "none";
+            }
+        }
+
+        // Toggle Dark Mode Function
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode') ? 'enabled' : 'disabled');
+        }
+
+        // On page load, apply the saved dark mode preference
+        window.onload = function() {
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                document.body.classList.add('dark-mode');
+            }
+        };
+    </script>
+</body>
+</html>
